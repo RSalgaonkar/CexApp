@@ -1,0 +1,242 @@
+<div class="row">
+  <div class="col-sm-12">
+    <div class="list-group" ng-repeat="item in itemList">
+      <a class="list-group-item">
+        <h4 class="list-group-item-heading item-title"> {{item.name}} </h4>
+        <div class="row">
+          <div class="col-sm-12" style="display:inline-flex;">
+            <div class="i-emg" style="float: left;">
+              <img src="images/farmer.png" alt="" class="img-rounded" height="150">
+            </div>
+            <div class="i-details" style="float: right">
+              <ul class="item-details">
+                <li>Description : {{item.description}}</li>
+                <li>
+                  <label>Qty</label>
+                  <select ng-selected="item.qty == opt.id" data-ng-options="opt.id as opt.value for opt in options" data-ng-model="item.qty" value="{{opt.value}}" ng-change="changeQty(item)"></select>
+                </li>
+                <!-- <li>Qty: {{item.qty}}</li> -->
+                <li>Price: {{item.price}}</li>
+                <li>Discount: {{item.discount}}</li>
+              </ul>
+            </div>
+          </div>
+          <!-- <div class="col-sm-3 item-image">
+            <img src="images/farmer.png" alt="" class="img-rounded displayed" height="150">
+          </div>
+          <div class="col-sm-9">
+            <ul class="item-details">
+              <li>Description : {{item.description}}</li>
+              <li>Qty: {{item.qty}}</li>
+              <li>Price: {{item.price}}</li>
+              <li>Discount: {{item.discount}}</li>
+            </ul>
+          </div> -->
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="item-details">
+              <span class="item-details-label">Merchandise Subtotal</span>
+              <span class="item-details-value">{{itemPriceTotal(item)}}</span>
+            </div>
+            <div class="item-details">
+              <span class="item-details-label">Estimated shipping and handling</span>
+              <span class="item-details-value">{{item.shipping}}</span>
+            </div>
+            <div class="item-details">
+              <span class="item-details-label">Sales Tax</span>
+              <span class="item-details-value">0%</span>
+            </div>
+            <div class="item-details">
+              <span class="item-details-label">Estimated Total</span>
+              <span class="item-details-value">{{orderEstimatedTotal(item)}}</span>
+            </div>
+            <div class="item-details">
+              <span class="item-details-label">Promotional Code</span>
+              <input type="text" name="promotional" class="item-details-value promo-width">
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 order-total">
+        <span>Order Total: {{orderTotal()}}</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 checkout">
+        <button class="checkout-back"> Back to shopping </button>
+        <button class="checkout-button"> <a href="#/checkout">Secure Checkout</a></button>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12 ordering-details-section">
+        <div class="list-group">
+          <a ng-click="showModalBilling()" class="list-group-item">
+              <span class="glyphicon glyphicon-piggy-bank"></span> Billing info
+          </a>
+          <!-- <a ng-click="showModalshippingAddress()" class="list-group-item">
+              <span class="glyphicon glyphicon-home"></span> Shipping address
+          </a> -->
+          <a ng-click="showModalPaymentMethod()" class="list-group-item">
+              <span class="glyphicon glyphicon-credit-card"></span> Payment methods
+          </a>
+          <a ng-click="showModalOrderReview()" class="list-group-item">
+              <span class="glyphicon glyphicon-ok"></span> Order reviews
+          </a>
+          <a ng-click="showModalRequestForm()" class="list-group-item">
+              <span class="glyphicon glyphicon-flag"></span> Special request
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div id="shippingAddress" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Billing Info</h4>
+      </div>
+      <div class="modal-body">
+        <p>CeX WeBuy Entertainment Pvt. Ltd.
+          <br>
+          B-1, Ground Floor, Todi Estate
+          <br>
+          Sunmill compound
+          <br>
+          Lower Parel - West, Mumbai.
+          <br>
+          Email: in.careers@webuy.com
+          <br>
+          Contact Nos.: 7738294586/ 9967204923 / 7738096814
+          <br>
+          Website: www.webuy.com
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="billingInfo" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Billing Info</h4>
+      </div>
+      <div class="modal-body">
+        <p>If auto-renew is enabled and your payment method is stored here, it's automatically charged at your next billing date. You can update the payment method details at any time before your next billing date. The billing address should match the one associated with the payment method.</p>
+        <p class="text-warning"><small>When you pay by invoice, we email you and your billing contact an invoice 45 days before your next billing date. You can update the billing address that will be listed on your invoice at any time before your next invoice is issued. We don't store the payment method you used to pay a previous invoice in your account, unless you </small></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="paymentMethod" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Payment methods</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-sm-12 ordering-details-section">
+            <div class="list-group">
+              <a class="list-group-item">
+                  <span class="glyphicon glyphicon-credit-card"></span> Debit Card
+              </a>
+              <a class="list-group-item">
+                  <span class="glyphicon glyphicon-credit-card"></span> Credit Card
+              </a>
+              <a class="list-group-item">
+                  <span class="glyphicon glyphicon-cloud"></span> Internet Banking
+              </a>
+              <a class="list-group-item">
+                  <span class="glyphicon glyphicon-ok"></span> PayPal
+              </a>
+              <a class="list-group-item">
+                  <span class="glyphicon glyphicon-home"></span> Cash on Delivery
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="orderReview" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Order Reviews</h4>
+      </div>
+      <div class="modal-body">
+        <p>Order received on time.</p>
+        <p>Order received almost after two weeeks of said time.</p>
+        <p>Happy with delivery.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="requestForm" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Requet details form</h4>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <form>
+            <div class="form-group row">
+              <label for="fullName" class="col-sm-2 col-form-label col-form-label-lg">Full Name</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control form-control-lg" id="fullName" placeholder="Modi Gandhi">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="email" class="col-sm-2 col-form-label col-form-label-lg">Email</label>
+              <div class="col-sm-10">
+                <input type="email" class="form-control form-control-lg" id="email" placeholder="you@example.com">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="request" class="col-sm-2 col-form-label col-form-label-lg">Request Details</label>
+              <div class="col-sm-10">
+                <textarea type="text" class="form-control form-control-lg" id="request" placeholder="request details here"></textarea>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-default" data-dismiss="modal">submit</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
