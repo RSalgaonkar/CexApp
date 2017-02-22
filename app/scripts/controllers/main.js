@@ -64,7 +64,7 @@ angular.module('cexApp')
   	$scope.orderEstimatedTotal = function (item) {
   		var orderTotal = 0;
   		var itemTotal = parseFloat(item.qty * item.price);
-			var itemShippingTotal = parseFloat(itemTotal + item.shipping + item.discount);
+			var itemShippingTotal = parseFloat(itemTotal + item.shipping - item.discount);
 			orderTotal = parseFloat(orderTotal + itemShippingTotal);
 			return orderTotal;
   	};
