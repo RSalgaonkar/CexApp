@@ -8790,77 +8790,78 @@ body {
 .item-details {
   list-style: none;
   font-weight: bold;
+  padding-left: 10px;
 }
 
-/* line 92, ../../app/styles/main.scss */
+/* line 93, ../../app/styles/main.scss */
 #billingInfo .modal {
   top: 20%;
 }
 
-/* line 96, ../../app/styles/main.scss */
+/* line 97, ../../app/styles/main.scss */
 img.displayed {
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
 
-/* line 102, ../../app/styles/main.scss */
+/* line 103, ../../app/styles/main.scss */
 .item-details {
   display: inline-block;
   width: 100%;
 }
-/* line 105, ../../app/styles/main.scss */
+/* line 106, ../../app/styles/main.scss */
 .item-details .promo-width {
   width: 120px;
 }
-/* line 108, ../../app/styles/main.scss */
+/* line 109, ../../app/styles/main.scss */
 .item-details .item-details-label {
   float: left;
   font-weight: bold;
 }
-/* line 112, ../../app/styles/main.scss */
+/* line 113, ../../app/styles/main.scss */
 .item-details .item-details-value {
   float: right;
   font-weight: bold;
 }
 
-/* line 118, ../../app/styles/main.scss */
+/* line 119, ../../app/styles/main.scss */
 .go-to-main {
   position: relative;
   top: -34px;
   right: -253px;
 }
 
-/* line 124, ../../app/styles/main.scss */
+/* line 125, ../../app/styles/main.scss */
 .checkout .checkout-button {
   float: right;
   margin-right: 14px;
   width: 144px;
 }
 
-/* line 130, ../../app/styles/main.scss */
+/* line 131, ../../app/styles/main.scss */
 .ordering-details-section {
   margin-top: 20px;
 }
 
-/* line 134, ../../app/styles/main.scss */
+/* line 135, ../../app/styles/main.scss */
 .order-total {
   float: right;
   font-weight: bold;
   margin-right: 17px;
 }
 
-/* line 140, ../../app/styles/main.scss */
+/* line 141, ../../app/styles/main.scss */
 .item-title {
   text-align: center;
 }
 
-/* line 144, ../../app/styles/main.scss */
+/* line 145, ../../app/styles/main.scss */
 h3.accordion {
   margin: 0;
 }
 
-/* line 147, ../../app/styles/main.scss */
+/* line 148, ../../app/styles/main.scss */
 .accordion a {
   padding: 10px;
   background: #ddd;
@@ -8871,7 +8872,7 @@ h3.accordion {
   margin-bottom: 1px;
 }
 
-/* line 156, ../../app/styles/main.scss */
+/* line 157, ../../app/styles/main.scss */
 .accordion-content {
   border: 1px solid #ddd;
   padding: 10px;
@@ -8880,13 +8881,13 @@ h3.accordion {
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
-  /* line 163, ../../app/styles/main.scss */
+  /* line 164, ../../app/styles/main.scss */
   .container {
     max-width: 730px;
   }
 
   /* Remove the padding we set earlier */
-  /* line 168, ../../app/styles/main.scss */
+  /* line 169, ../../app/styles/main.scss */
   .header,
   .marketing,
   .footer {
@@ -8895,13 +8896,13 @@ h3.accordion {
   }
 
   /* Space out the masthead */
-  /* line 175, ../../app/styles/main.scss */
+  /* line 176, ../../app/styles/main.scss */
   .header {
     margin-bottom: 30px;
   }
 
   /* Remove the bottom border on the jumbotron for visual effect */
-  /* line 179, ../../app/styles/main.scss */
+  /* line 180, ../../app/styles/main.scss */
   .jumbotron {
     border-bottom: 0;
   }
